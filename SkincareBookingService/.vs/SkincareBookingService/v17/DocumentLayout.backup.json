@@ -1,0 +1,151 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Main\\SWP391\\SkincareBookingService\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DF99AEC8-C11A-4735-9B17-67CCC80C081E}|SkincareBookingService\\SkincareBookingService.csproj|d:\\main\\swp391\\skincarebookingservice\\skincarebookingservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DF99AEC8-C11A-4735-9B17-67CCC80C081E}|SkincareBookingService\\SkincareBookingService.csproj|solutionrelative:skincarebookingservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF99AEC8-C11A-4735-9B17-67CCC80C081E}|SkincareBookingService\\SkincareBookingService.csproj|d:\\main\\swp391\\skincarebookingservice\\skincarebookingservice\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF99AEC8-C11A-4735-9B17-67CCC80C081E}|SkincareBookingService\\SkincareBookingService.csproj|solutionrelative:skincarebookingservice\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF99AEC8-C11A-4735-9B17-67CCC80C081E}|SkincareBookingService\\SkincareBookingService.csproj|d:\\main\\swp391\\skincarebookingservice\\skincarebookingservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF99AEC8-C11A-4735-9B17-67CCC80C081E}|SkincareBookingService\\SkincareBookingService.csproj|solutionrelative:skincarebookingservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF99AEC8-C11A-4735-9B17-67CCC80C081E}|SkincareBookingService\\SkincareBookingService.csproj|d:\\main\\swp391\\skincarebookingservice\\skincarebookingservice\\models\\blog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF99AEC8-C11A-4735-9B17-67CCC80C081E}|SkincareBookingService\\SkincareBookingService.csproj|solutionrelative:skincarebookingservice\\models\\blog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF99AEC8-C11A-4735-9B17-67CCC80C081E}|SkincareBookingService\\SkincareBookingService.csproj|d:\\main\\swp391\\skincarebookingservice\\skincarebookingservice\\models\\skincarebookingservicecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF99AEC8-C11A-4735-9B17-67CCC80C081E}|SkincareBookingService\\SkincareBookingService.csproj|solutionrelative:skincarebookingservice\\models\\skincarebookingservicecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:4:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:6:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:7:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\appsettings.json",
+              "RelativeDocumentMoniker": "SkincareBookingService\\appsettings.json",
+              "ToolTip": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\appsettings.json",
+              "RelativeToolTip": "SkincareBookingService\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-27T17:00:12.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Blog.cs",
+              "DocumentMoniker": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\Models\\Blog.cs",
+              "RelativeDocumentMoniker": "SkincareBookingService\\Models\\Blog.cs",
+              "ToolTip": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\Models\\Blog.cs",
+              "RelativeToolTip": "SkincareBookingService\\Models\\Blog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T16:58:17.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\Program.cs",
+              "RelativeDocumentMoniker": "SkincareBookingService\\Program.cs",
+              "ToolTip": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\Program.cs",
+              "RelativeToolTip": "SkincareBookingService\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T16:08:39.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Account.cs",
+              "DocumentMoniker": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "SkincareBookingService\\Models\\Account.cs",
+              "ToolTip": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\Models\\Account.cs",
+              "RelativeToolTip": "SkincareBookingService\\Models\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T16:05:37.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SkincareBookingServiceContext.cs",
+              "DocumentMoniker": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\Models\\SkincareBookingServiceContext.cs",
+              "RelativeDocumentMoniker": "SkincareBookingService\\Models\\SkincareBookingServiceContext.cs",
+              "ToolTip": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\Models\\SkincareBookingServiceContext.cs",
+              "RelativeToolTip": "SkincareBookingService\\Models\\SkincareBookingServiceContext.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T16:04:36.938Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 326,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
