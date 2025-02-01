@@ -15,17 +15,13 @@ public partial class Service
 
     public decimal Price { get; set; }
 
-    public int? ServiceTypeId { get; set; }
+    public int ServiceTypeId { get; set; }
 
     public int? QuizResultId { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
-    public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
-
     public virtual QuizServiceResult QuizResult { get; set; }
 
-    public virtual ServiceType ServiceType { get; set; }
-
-    public virtual ICollection<Slot> Slots { get; set; } = new List<Slot>();
+    public virtual ICollection<ServiceType> ServiceTypes { get; set; } = new List<ServiceType>();
 }

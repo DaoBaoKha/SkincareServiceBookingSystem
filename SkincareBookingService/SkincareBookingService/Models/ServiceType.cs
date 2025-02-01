@@ -13,11 +13,11 @@ public partial class ServiceType
 
     public string Description { get; set; }
 
-    public decimal? Price { get; set; }
+    public decimal Price { get; set; }
 
-    public string Period { get; set; }
+    public int Period { get; set; }
 
-    public string Genre { get; set; }
+    public int? ServiceId { get; set; }
 
-    public virtual ICollection<Service> Services { get; set; } = new List<Service>();
+    public virtual Service Service { get; set; }
 }

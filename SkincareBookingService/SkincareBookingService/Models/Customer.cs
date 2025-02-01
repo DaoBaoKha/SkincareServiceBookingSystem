@@ -7,13 +7,13 @@ namespace SkincareBookingService.Models;
 
 public partial class Customer
 {
-    public int CustomerId { get; set; }
+    public int AccountId { get; set; }
 
     public string Name { get; set; }
 
     public string SkinTypeName { get; set; }
 
-    public int RoleId { get; set; }
+    public virtual Account Account { get; set; }
 
     public virtual ICollection<Blog> Blogs { get; set; } = new List<Blog>();
 
@@ -23,7 +23,7 @@ public partial class Customer
 
     public virtual ICollection<QuizAnswer> QuizAnswers { get; set; } = new List<QuizAnswer>();
 
-    public virtual Role Role { get; set; }
+    public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
 
     public virtual ICollection<SkinType> SkinTypes { get; set; } = new List<SkinType>();
 }

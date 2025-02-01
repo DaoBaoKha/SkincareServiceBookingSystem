@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 namespace SkincareBookingService.Models;
 
-public partial class Feedback
+public partial class Rating
 {
-    public int FeedbackId { get; set; }
+    public int RatingId { get; set; }
 
-    public string Content { get; set; }
-
-    public int CustomerId { get; set; }
+    public int Stars { get; set; }
 
     public int ServiceId { get; set; }
+
+    public int CustomerId { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 

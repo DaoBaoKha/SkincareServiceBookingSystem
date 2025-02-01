@@ -9,6 +9,8 @@ public partial class QuizQuestion
 {
     public int QuestionId { get; set; }
 
+    public int? QuestionSetId { get; set; }
+
     public string Content { get; set; }
 
     public string SkinTypeName { get; set; }
@@ -17,7 +19,11 @@ public partial class QuizQuestion
 
     public DateTime? CreatedAt { get; set; }
 
+    public int? SkinTypeId { get; set; }
+
+    public virtual QuizQuestionSet QuestionSet { get; set; }
+
     public virtual ICollection<QuizAnswer> QuizAnswers { get; set; } = new List<QuizAnswer>();
 
-    public virtual SkinType SkinTypeNameNavigation { get; set; }
+    public virtual SkinType SkinType { get; set; }
 }

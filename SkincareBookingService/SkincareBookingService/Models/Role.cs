@@ -14,6 +14,4 @@ public partial class Role
     public bool Status { get; set; }
 
     public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();
-
-    public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
 }

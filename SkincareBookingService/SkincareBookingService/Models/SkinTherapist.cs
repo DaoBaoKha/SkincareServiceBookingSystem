@@ -7,7 +7,7 @@ namespace SkincareBookingService.Models;
 
 public partial class SkinTherapist
 {
-    public int SkinTherapistId { get; set; }
+    public int AccountId { get; set; }
 
     public string Name { get; set; }
 
@@ -15,7 +15,9 @@ public partial class SkinTherapist
 
     public string Email { get; set; }
 
-    public string Experience { get; set; }
+    public int? Experience { get; set; }
+
+    public virtual Account Account { get; set; }
 
     public virtual ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
 }

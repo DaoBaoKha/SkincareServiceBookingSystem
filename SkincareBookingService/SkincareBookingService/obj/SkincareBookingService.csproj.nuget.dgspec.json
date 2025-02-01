@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.csproj": {}
+    "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.csproj": {}
   },
   "projects": {
-    "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.csproj": {
+    "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.csproj",
+        "projectUniqueName": "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.csproj",
         "projectName": "SkincareBookingService",
-        "projectPath": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.csproj",
+        "projectPath": "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "D:\\Main\\SWP391\\SkincareBookingService\\SkincareBookingService\\obj\\",
+        "outputPath": "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,6 +46,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.19, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"

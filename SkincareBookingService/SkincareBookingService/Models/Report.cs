@@ -9,15 +9,11 @@ public partial class Report
 {
     public int ReportId { get; set; }
 
-    public int? ManagerId { get; set; }
+    public decimal TotalRevenue { get; set; }
 
-    public decimal? TotalRevenue { get; set; }
+    public int TotalAppointments { get; set; }
 
-    public int? TotalAppointment { get; set; }
+    public int TotalCustomers { get; set; }
 
-    public decimal? MonthlyRevenue { get; set; }
-
-    public int? TotalFeedback { get; set; }
-
-    public virtual Manager Manager { get; set; }
+    public string StaffFeedback { get; set; }
 }

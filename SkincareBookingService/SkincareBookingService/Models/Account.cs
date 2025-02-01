@@ -13,13 +13,23 @@ public partial class Account
 
     public string Email { get; set; }
 
+    public string Password { get; set; }
+
     public string PhoneNumber { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
 
-    public int RoleId { get; set; }
+    public int? RoleId { get; set; }
+
+    public virtual Customer Customer { get; set; }
+
+    public virtual Manager Manager { get; set; }
 
     public virtual Role Role { get; set; }
+
+    public virtual SkinTherapist SkinTherapist { get; set; }
+
+    public virtual Staff Staff { get; set; }
 }

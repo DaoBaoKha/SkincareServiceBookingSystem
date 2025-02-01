@@ -9,17 +9,19 @@ public partial class Booking
 {
     public int BookingId { get; set; }
 
-    public int? CustomerId { get; set; }
+    public int CustomerId { get; set; }
 
-    public string Location { get; set; }
-
-    public DateTime Date { get; set; }
+    public decimal Price { get; set; }
 
     public string Status { get; set; }
 
     public string SkinTherapistName { get; set; }
 
     public string ServiceName { get; set; }
+
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
 
     public virtual Customer Customer { get; set; }
 

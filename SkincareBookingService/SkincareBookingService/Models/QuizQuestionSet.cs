@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 namespace SkincareBookingService.Models;
 
-public partial class SkinType
+public partial class QuizQuestionSet
 {
-    public int SkinTypeId { get; set; }
+    public int QuestionSetId { get; set; }
 
-    public string Description { get; set; }
+    public string Title { get; set; }
 
-    public int? CustomerId { get; set; }
+    public DateTime? CreatedAt { get; set; }
 
-    public virtual Customer Customer { get; set; }
+    public virtual ICollection<QuizAnswer> QuizAnswers { get; set; } = new List<QuizAnswer>();
 
     public virtual ICollection<QuizQuestion> QuizQuestions { get; set; } = new List<QuizQuestion>();
 }

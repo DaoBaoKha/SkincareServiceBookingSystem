@@ -7,15 +7,9 @@ namespace SkincareBookingService.Models;
 
 public partial class Manager
 {
-    public int ManagerId { get; set; }
+    public int AccountId { get; set; }
 
     public string Name { get; set; }
 
-    public string Email { get; set; }
-
-    public string PhoneNumber { get; set; }
-
-    public string Position { get; set; }
-
-    public virtual ICollection<Report> Reports { get; set; } = new List<Report>();
+    public virtual Account Account { get; set; }
 }

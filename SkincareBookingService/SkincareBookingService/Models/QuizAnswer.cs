@@ -9,19 +9,23 @@ public partial class QuizAnswer
 {
     public int AnswerId { get; set; }
 
-    public int? CustomerId { get; set; }
-
     public int? QuestionId { get; set; }
 
-    public string Answer { get; set; }
+    public int? CustomerId { get; set; }
 
-    public bool? IsCorrect { get; set; }
+    public string AnswerText { get; set; }
+
+    public int Score { get; set; }
 
     public DateTime? CreatedAt { get; set; }
+
+    public int? QuestionSetId { get; set; }
 
     public virtual Customer Customer { get; set; }
 
     public virtual QuizQuestion Question { get; set; }
+
+    public virtual QuizQuestionSet QuestionSet { get; set; }
 
     public virtual ICollection<QuizServiceResult> QuizServiceResults { get; set; } = new List<QuizServiceResult>();
 }

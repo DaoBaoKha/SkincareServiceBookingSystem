@@ -11,17 +11,13 @@ public partial class Slot
 
     public string Status { get; set; }
 
-    public string Time { get; set; }
+    public TimeSpan Time { get; set; }
 
     public int? BookingId { get; set; }
 
     public int? ScheduleId { get; set; }
 
-    public int? ServiceId { get; set; }
-
     public virtual Booking Booking { get; set; }
 
     public virtual Schedule Schedule { get; set; }
-
-    public virtual Service Service { get; set; }
 }

@@ -9,9 +9,9 @@ public partial class QuizServiceResult
 {
     public int QuizResultId { get; set; }
 
-    public string Result { get; set; }
+    public int? AnswerId { get; set; }
 
-    public int AnswerId { get; set; }
+    public string Result { get; set; }
 
     public virtual QuizAnswer Answer { get; set; }
 
