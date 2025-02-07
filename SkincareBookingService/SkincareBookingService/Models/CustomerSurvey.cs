@@ -5,19 +5,17 @@ using System.Collections.Generic;
 
 namespace SkincareBookingService.Models;
 
-public partial class QuizAnswer
+public partial class CustomerSurvey
 {
-    public int AnswerId { get; set; }
+    public int CustomersurveyId { get; set; }
 
-    public int? CustomerId { get; set; }
-
-    public int? QuizquestionId { get; set; }
+    public DateTime? Date { get; set; }
 
     public int? SkintypeId { get; set; }
 
-    public string Answer { get; set; }
+    public int? QuestionsId { get; set; }
 
-    public string ServiceImpact { get; set; }
+    public int? CustomerId { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
@@ -25,7 +23,7 @@ public partial class QuizAnswer
 
     public virtual ICollection<CustomerSurveyAnswer> CustomerSurveyAnswers { get; set; } = new List<CustomerSurveyAnswer>();
 
-    public virtual QuizQuestion Quizquestion { get; set; }
+    public virtual QuizQuestionSet Questions { get; set; }
 
     public virtual SkinType Skintype { get; set; }
 }

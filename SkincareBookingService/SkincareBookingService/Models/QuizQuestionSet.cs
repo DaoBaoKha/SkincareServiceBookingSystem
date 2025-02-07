@@ -7,13 +7,13 @@ namespace SkincareBookingService.Models;
 
 public partial class QuizQuestionSet
 {
-    public int QuestionSetId { get; set; }
+    public int QuestionsId { get; set; }
 
     public string Title { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
-    public virtual ICollection<QuizAnswer> QuizAnswers { get; set; } = new List<QuizAnswer>();
+    public virtual ICollection<CustomerSurvey> CustomerSurveys { get; set; } = new List<CustomerSurvey>();
 
     public virtual ICollection<QuizQuestion> QuizQuestions { get; set; } = new List<QuizQuestion>();
 }

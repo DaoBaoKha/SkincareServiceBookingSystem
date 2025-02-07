@@ -15,7 +15,9 @@ public partial class Blog
 
     public int? CustomerId { get; set; }
 
-    public DateTime? CreatedAt { get; set; }
+    public string Image { get; set; }
+
+    public DateTime? CreateAt { get; set; }
 
     public virtual Customer Customer { get; set; }
 }

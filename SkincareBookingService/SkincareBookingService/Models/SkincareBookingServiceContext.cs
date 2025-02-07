@@ -21,9 +21,11 @@ public partial class SkincareBookingServiceContext : DbContext
 
     public virtual DbSet<Customer> Customers { get; set; }
 
-    public virtual DbSet<Feedback> Feedbacks { get; set; }
+    public virtual DbSet<CustomerSurvey> CustomerSurveys { get; set; }
 
-    public virtual DbSet<Manager> Managers { get; set; }
+    public virtual DbSet<CustomerSurveyAnswer> CustomerSurveyAnswers { get; set; }
+
+    public virtual DbSet<Feedback> Feedbacks { get; set; }
 
     public virtual DbSet<QuizAnswer> QuizAnswers { get; set; }
 
@@ -31,85 +33,61 @@ public partial class SkincareBookingServiceContext : DbContext
 
     public virtual DbSet<QuizQuestionSet> QuizQuestionSets { get; set; }
 
-    public virtual DbSet<QuizServiceResult> QuizServiceResults { get; set; }
-
     public virtual DbSet<Rating> Ratings { get; set; }
-
-    public virtual DbSet<Report> Reports { get; set; }
-
-    public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<Schedule> Schedules { get; set; }
 
     public virtual DbSet<Service> Services { get; set; }
 
-    public virtual DbSet<ServiceType> ServiceTypes { get; set; }
-
     public virtual DbSet<SkinTherapist> SkinTherapists { get; set; }
+
+    public virtual DbSet<SkinTherapistService> SkinTherapistServices { get; set; }
 
     public virtual DbSet<SkinType> SkinTypes { get; set; }
 
-    public virtual DbSet<Slot> Slots { get; set; }
+    public virtual DbSet<SkintypeService> SkintypeServices { get; set; }
 
-    public virtual DbSet<Staff> Staff { get; set; }
+    public virtual DbSet<Slot> Slots { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Account>(entity =>
         {
-            entity.HasKey(e => e.AccountId).HasName("PK__Account__F267251E7D16F93A");
+            entity.HasKey(e => e.AccountId).HasName("PK__Account__F267251E9E4D1C6E");
 
             entity.ToTable("Account");
-
-            entity.HasIndex(e => e.Email, "UQ__Account__AB6E61645684A80C").IsUnique();
 
             entity.Property(e => e.AccountId).HasColumnName("accountId");
             entity.Property(e => e.AccountName)
                 .IsRequired()
-                .HasMaxLength(255)
+                .HasMaxLength(100)
                 .HasColumnName("accountName");
-            entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime")
-                .HasColumnName("createdAt");
-            entity.Property(e => e.Email)
-                .IsRequired()
-                .HasMaxLength(255)
-                .HasColumnName("email");
+            entity.Property(e => e.Active).HasColumnName("active");
             entity.Property(e => e.Password)
                 .IsRequired()
                 .HasMaxLength(255)
                 .HasColumnName("password");
-            entity.Property(e => e.PhoneNumber)
-                .HasMaxLength(20)
-                .HasColumnName("phoneNumber");
-            entity.Property(e => e.RoleId).HasColumnName("roleId");
-            entity.Property(e => e.UpdatedAt)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime")
-                .HasColumnName("updatedAt");
-
-            entity.HasOne(d => d.Role).WithMany(p => p.Accounts)
-                .HasForeignKey(d => d.RoleId)
-                .HasConstraintName("FK__Account__roleId__4E88ABD4");
+            entity.Property(e => e.Role)
+                .HasMaxLength(50)
+                .HasColumnName("role");
         });
 
         modelBuilder.Entity<Blog>(entity =>
         {
-            entity.HasKey(e => e.BlogId).HasName("PK__Blog__FA0AA72D41E5E17F");
+            entity.HasKey(e => e.BlogId).HasName("PK__Blog__FA0AA72D075819E8");
 
             entity.ToTable("Blog");
 
             entity.Property(e => e.BlogId).HasColumnName("blogId");
-            entity.Property(e => e.Content)
-                .IsRequired()
-                .HasColumnType("text")
-                .HasColumnName("content");
-            entity.Property(e => e.CreatedAt)
+            entity.Property(e => e.Content).HasColumnName("content");
+            entity.Property(e => e.CreateAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
-                .HasColumnName("createdAt");
+                .HasColumnName("createAt");
             entity.Property(e => e.CustomerId).HasColumnName("customerId");
+            entity.Property(e => e.Image)
+                .HasMaxLength(255)
+                .HasColumnName("image");
             entity.Property(e => e.Title)
                 .IsRequired()
                 .HasMaxLength(255)
@@ -117,188 +95,212 @@ public partial class SkincareBookingServiceContext : DbContext
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Blogs)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__Blog__customerId__5FB337D6");
+                .HasConstraintName("FK__Blog__customerId__6B24EA82");
         });
 
         modelBuilder.Entity<Booking>(entity =>
         {
-            entity.HasKey(e => e.BookingId).HasName("PK__Booking__C6D03BCDF87D8D9F");
+            entity.HasKey(e => e.BookingId).HasName("PK__Booking__C6D03BCD7E8456A4");
 
             entity.ToTable("Booking");
 
             entity.Property(e => e.BookingId).HasColumnName("bookingId");
-            entity.Property(e => e.CreatedAt)
+            entity.Property(e => e.Amount)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("amount");
+            entity.Property(e => e.CreateAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
-                .HasColumnName("createdAt");
+                .HasColumnName("createAt");
             entity.Property(e => e.CustomerId).HasColumnName("customerId");
-            entity.Property(e => e.Price)
-                .HasColumnType("decimal(18, 2)")
-                .HasColumnName("price");
+            entity.Property(e => e.Date)
+                .HasColumnType("datetime")
+                .HasColumnName("date");
+            entity.Property(e => e.Location)
+                .HasMaxLength(255)
+                .HasColumnName("location");
             entity.Property(e => e.ServiceName)
                 .HasMaxLength(255)
                 .HasColumnName("serviceName");
-            entity.Property(e => e.SkinTherapistName)
-                .HasMaxLength(255)
-                .HasColumnName("skinTherapistName");
+            entity.Property(e => e.SkintherapistId).HasColumnName("skintherapistId");
             entity.Property(e => e.Status)
-                .IsRequired()
                 .HasMaxLength(50)
                 .HasColumnName("status");
-            entity.Property(e => e.UpdatedAt)
-                .HasDefaultValueSql("(getdate())")
+            entity.Property(e => e.UpdateAt)
                 .HasColumnType("datetime")
-                .HasColumnName("updatedAt");
+                .HasColumnName("updateAt");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Bookings)
                 .HasForeignKey(d => d.CustomerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Booking__custome__06CD04F7");
+                .HasConstraintName("FK__Booking__custome__5812160E");
+
+            entity.HasOne(d => d.Skintherapist).WithMany(p => p.Bookings)
+                .HasForeignKey(d => d.SkintherapistId)
+                .HasConstraintName("FK__Booking__skinthe__59063A47");
         });
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.AccountId).HasName("PK__Customer__F267251ED5D0ACA5");
+            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__B611CB7DEFF47A3D");
 
             entity.ToTable("Customer");
 
-            entity.Property(e => e.AccountId)
-                .ValueGeneratedNever()
-                .HasColumnName("accountId");
+            entity.Property(e => e.CustomerId).HasColumnName("customerId");
+            entity.Property(e => e.AccountId).HasColumnName("accountId");
+            entity.Property(e => e.Email)
+                .HasMaxLength(100)
+                .HasColumnName("email");
+            entity.Property(e => e.Image)
+                .HasMaxLength(255)
+                .HasColumnName("image");
             entity.Property(e => e.Name)
                 .IsRequired()
-                .HasMaxLength(255)
+                .HasMaxLength(100)
                 .HasColumnName("name");
-            entity.Property(e => e.SkinTypeName)
-                .IsRequired()
-                .HasMaxLength(255)
-                .HasColumnName("skinTypeName");
+            entity.Property(e => e.PhoneNumber)
+                .HasMaxLength(20)
+                .HasColumnName("phoneNumber");
+            entity.Property(e => e.SkintypeId).HasColumnName("skintypeId");
 
-            entity.HasOne(d => d.Account).WithOne(p => p.Customer)
-                .HasForeignKey<Customer>(d => d.AccountId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Customer__accoun__5165187F");
+            entity.HasOne(d => d.Account).WithMany(p => p.Customers)
+                .HasForeignKey(d => d.AccountId)
+                .HasConstraintName("FK__Customer__accoun__4E88ABD4");
+
+            entity.HasOne(d => d.Skintype).WithMany(p => p.Customers)
+                .HasForeignKey(d => d.SkintypeId)
+                .HasConstraintName("FK__Customer__skinty__4D94879B");
+        });
+
+        modelBuilder.Entity<CustomerSurvey>(entity =>
+        {
+            entity.HasKey(e => e.CustomersurveyId).HasName("PK__Customer__500667325476DE3A");
+
+            entity.ToTable("CustomerSurvey");
+
+            entity.Property(e => e.CustomersurveyId).HasColumnName("customersurveyId");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime")
+                .HasColumnName("createdAt");
+            entity.Property(e => e.CustomerId).HasColumnName("customerId");
+            entity.Property(e => e.Date)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime")
+                .HasColumnName("date");
+            entity.Property(e => e.QuestionsId).HasColumnName("questionsId");
+            entity.Property(e => e.SkintypeId).HasColumnName("skintypeId");
+
+            entity.HasOne(d => d.Customer).WithMany(p => p.CustomerSurveys)
+                .HasForeignKey(d => d.CustomerId)
+                .HasConstraintName("FK__CustomerS__custo__06CD04F7");
+
+            entity.HasOne(d => d.Questions).WithMany(p => p.CustomerSurveys)
+                .HasForeignKey(d => d.QuestionsId)
+                .HasConstraintName("FK__CustomerS__quest__05D8E0BE");
+
+            entity.HasOne(d => d.Skintype).WithMany(p => p.CustomerSurveys)
+                .HasForeignKey(d => d.SkintypeId)
+                .HasConstraintName("FK__CustomerS__skint__04E4BC85");
+        });
+
+        modelBuilder.Entity<CustomerSurveyAnswer>(entity =>
+        {
+            entity.HasKey(e => e.CustomersurveyanswerId).HasName("PK__Customer__7C419B23EC9362B1");
+
+            entity.ToTable("CustomerSurveyAnswer");
+
+            entity.Property(e => e.CustomersurveyanswerId).HasColumnName("customersurveyanswerId");
+            entity.Property(e => e.AnswerId).HasColumnName("answerId");
+            entity.Property(e => e.CustomersurveyId).HasColumnName("customersurveyId");
+
+            entity.HasOne(d => d.Answer).WithMany(p => p.CustomerSurveyAnswers)
+                .HasForeignKey(d => d.AnswerId)
+                .HasConstraintName("FK__CustomerS__answe__0A9D95DB");
+
+            entity.HasOne(d => d.Customersurvey).WithMany(p => p.CustomerSurveyAnswers)
+                .HasForeignKey(d => d.CustomersurveyId)
+                .HasConstraintName("FK__CustomerS__custo__09A971A2");
         });
 
         modelBuilder.Entity<Feedback>(entity =>
         {
-            entity.HasKey(e => e.FeedbackId).HasName("PK__Feedback__2613FD24E58FAD2D");
+            entity.HasKey(e => e.FeedbackId).HasName("PK__Feedback__2613FD242EE76794");
 
             entity.ToTable("Feedback");
 
             entity.Property(e => e.FeedbackId).HasColumnName("feedbackId");
-            entity.Property(e => e.Content)
-                .IsRequired()
-                .HasColumnType("text")
-                .HasColumnName("content");
+            entity.Property(e => e.Content).HasColumnName("content");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
                 .HasColumnName("createdAt");
             entity.Property(e => e.CustomerId).HasColumnName("customerId");
-            entity.Property(e => e.ServiceId).HasColumnName("serviceId");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Feedbacks)
                 .HasForeignKey(d => d.CustomerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Feedback__custom__68487DD7");
-        });
-
-        modelBuilder.Entity<Manager>(entity =>
-        {
-            entity.HasKey(e => e.AccountId).HasName("PK__Manager__F267251EA3561C6B");
-
-            entity.ToTable("Manager");
-
-            entity.Property(e => e.AccountId)
-                .ValueGeneratedNever()
-                .HasColumnName("accountId");
-            entity.Property(e => e.Name)
-                .IsRequired()
-                .HasMaxLength(255)
-                .HasColumnName("name");
-
-            entity.HasOne(d => d.Account).WithOne(p => p.Manager)
-                .HasForeignKey<Manager>(d => d.AccountId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Manager__account__59FA5E80");
+                .HasConstraintName("FK__Feedback__custom__73BA3083");
         });
 
         modelBuilder.Entity<QuizAnswer>(entity =>
         {
-            entity.HasKey(e => e.AnswerId).HasName("PK__QuizAnsw__6836B974EB53F9BF");
+            entity.HasKey(e => e.AnswerId).HasName("PK__QuizAnsw__6836B974A01114EA");
 
             entity.ToTable("QuizAnswer");
 
             entity.Property(e => e.AnswerId).HasColumnName("answerId");
-            entity.Property(e => e.AnswerText)
-                .IsRequired()
-                .HasMaxLength(255)
-                .HasColumnName("answerText");
+            entity.Property(e => e.Answer).HasColumnName("answer");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
                 .HasColumnName("createdAt");
             entity.Property(e => e.CustomerId).HasColumnName("customerId");
-            entity.Property(e => e.QuestionId).HasColumnName("questionId");
-            entity.Property(e => e.QuestionSetId).HasColumnName("questionSetId");
-            entity.Property(e => e.Score).HasColumnName("score");
+            entity.Property(e => e.QuizquestionId).HasColumnName("quizquestionId");
+            entity.Property(e => e.ServiceImpact)
+                .HasMaxLength(255)
+                .HasColumnName("serviceImpact");
+            entity.Property(e => e.SkintypeId).HasColumnName("skintypeId");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.QuizAnswers)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__QuizAnswe__custo__778AC167");
+                .HasConstraintName("FK__QuizAnswe__custo__7E37BEF6");
 
-            entity.HasOne(d => d.Question).WithMany(p => p.QuizAnswers)
-                .HasForeignKey(d => d.QuestionId)
-                .HasConstraintName("FK__QuizAnswe__quest__76969D2E");
+            entity.HasOne(d => d.Quizquestion).WithMany(p => p.QuizAnswers)
+                .HasForeignKey(d => d.QuizquestionId)
+                .HasConstraintName("FK__QuizAnswe__quizq__7F2BE32F");
 
-            entity.HasOne(d => d.QuestionSet).WithMany(p => p.QuizAnswers)
-                .HasForeignKey(d => d.QuestionSetId)
-                .HasConstraintName("FK__QuizAnswe__quest__7A672E12");
+            entity.HasOne(d => d.Skintype).WithMany(p => p.QuizAnswers)
+                .HasForeignKey(d => d.SkintypeId)
+                .HasConstraintName("FK__QuizAnswe__skint__00200768");
         });
 
         modelBuilder.Entity<QuizQuestion>(entity =>
         {
-            entity.HasKey(e => e.QuestionId).HasName("PK__QuizQues__6238D4B2FB46D149");
+            entity.HasKey(e => e.QuizquestionId).HasName("PK__QuizQues__F5476D714DD95FEC");
 
             entity.ToTable("QuizQuestion");
 
-            entity.Property(e => e.QuestionId).HasColumnName("questionId");
+            entity.Property(e => e.QuizquestionId).HasColumnName("quizquestionId");
             entity.Property(e => e.Content)
                 .IsRequired()
-                .HasColumnType("text")
                 .HasColumnName("content");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
                 .HasColumnName("createdAt");
-            entity.Property(e => e.QuestionSetId).HasColumnName("questionSetId");
-            entity.Property(e => e.SkinTypeId).HasColumnName("skinTypeId");
-            entity.Property(e => e.SkinTypeName)
-                .IsRequired()
-                .HasMaxLength(255)
-                .HasColumnName("skinTypeName");
-            entity.Property(e => e.UpdatedAt)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime")
-                .HasColumnName("updatedAt");
+            entity.Property(e => e.QuestionsId).HasColumnName("questionsId");
 
-            entity.HasOne(d => d.QuestionSet).WithMany(p => p.QuizQuestions)
-                .HasForeignKey(d => d.QuestionSetId)
-                .HasConstraintName("FK__QuizQuest__quest__70DDC3D8");
-
-            entity.HasOne(d => d.SkinType).WithMany(p => p.QuizQuestions)
-                .HasForeignKey(d => d.SkinTypeId)
-                .HasConstraintName("FK__QuizQuest__skinT__73BA3083");
+            entity.HasOne(d => d.Questions).WithMany(p => p.QuizQuestions)
+                .HasForeignKey(d => d.QuestionsId)
+                .HasConstraintName("FK__QuizQuest__quest__7A672E12");
         });
 
         modelBuilder.Entity<QuizQuestionSet>(entity =>
         {
-            entity.HasKey(e => e.QuestionSetId).HasName("PK__QuizQues__A0706DDF3420F878");
+            entity.HasKey(e => e.QuestionsId).HasName("PK__QuizQues__E6446AF296DD0532");
 
             entity.ToTable("QuizQuestionSet");
 
-            entity.Property(e => e.QuestionSetId).HasColumnName("questionSetId");
+            entity.Property(e => e.QuestionsId).HasColumnName("questionsId");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
@@ -309,103 +311,50 @@ public partial class SkincareBookingServiceContext : DbContext
                 .HasColumnName("title");
         });
 
-        modelBuilder.Entity<QuizServiceResult>(entity =>
-        {
-            entity.HasKey(e => e.QuizResultId).HasName("PK__QuizServ__00CBB000E3A3B985");
-
-            entity.ToTable("QuizServiceResult");
-
-            entity.Property(e => e.QuizResultId).HasColumnName("quizResultId");
-            entity.Property(e => e.AnswerId).HasColumnName("answerId");
-            entity.Property(e => e.Result)
-                .IsRequired()
-                .HasMaxLength(255)
-                .HasColumnName("result");
-
-            entity.HasOne(d => d.Answer).WithMany(p => p.QuizServiceResults)
-                .HasForeignKey(d => d.AnswerId)
-                .HasConstraintName("FK__QuizServi__answe__7D439ABD");
-        });
-
         modelBuilder.Entity<Rating>(entity =>
         {
-            entity.HasKey(e => e.RatingId).HasName("PK__Rating__2D290CA9CECFB6B3");
+            entity.HasKey(e => e.RatingId).HasName("PK__Rating__2D290CA97E0DB2B2");
 
             entity.ToTable("Rating");
 
             entity.Property(e => e.RatingId).HasColumnName("ratingId");
-            entity.Property(e => e.CreatedAt)
+            entity.Property(e => e.CreateAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
-                .HasColumnName("createdAt");
+                .HasColumnName("createAt");
             entity.Property(e => e.CustomerId).HasColumnName("customerId");
-            entity.Property(e => e.ServiceId).HasColumnName("serviceId");
             entity.Property(e => e.Stars).HasColumnName("stars");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Ratings)
                 .HasForeignKey(d => d.CustomerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Rating__customer__6477ECF3");
-        });
-
-        modelBuilder.Entity<Report>(entity =>
-        {
-            entity.HasKey(e => e.ReportId).HasName("PK__Report__1C9B4E2D695B70B5");
-
-            entity.ToTable("Report");
-
-            entity.Property(e => e.ReportId).HasColumnName("reportId");
-            entity.Property(e => e.StaffFeedback)
-                .HasMaxLength(255)
-                .HasColumnName("staffFeedback");
-            entity.Property(e => e.TotalAppointments).HasColumnName("totalAppointments");
-            entity.Property(e => e.TotalCustomers).HasColumnName("totalCustomers");
-            entity.Property(e => e.TotalRevenue)
-                .HasColumnType("decimal(18, 2)")
-                .HasColumnName("totalRevenue");
-        });
-
-        modelBuilder.Entity<Role>(entity =>
-        {
-            entity.HasKey(e => e.RoleId).HasName("PK__Role__CD98462AB67BF67F");
-
-            entity.ToTable("Role");
-
-            entity.Property(e => e.RoleId).HasColumnName("roleId");
-            entity.Property(e => e.RoleName)
-                .IsRequired()
-                .HasMaxLength(50)
-                .HasColumnName("roleName");
-            entity.Property(e => e.Status).HasColumnName("status");
+                .HasConstraintName("FK__Rating__customer__6FE99F9F");
         });
 
         modelBuilder.Entity<Schedule>(entity =>
         {
-            entity.HasKey(e => e.ScheduleId).HasName("PK__Schedule__A532EDD4226015A8");
+            entity.HasKey(e => e.ScheduleId).HasName("PK__Schedule__A532EDD4795F163A");
 
             entity.ToTable("Schedule");
 
             entity.Property(e => e.ScheduleId).HasColumnName("scheduleId");
-            entity.Property(e => e.Description)
-                .HasMaxLength(255)
-                .HasColumnName("description");
-            entity.Property(e => e.StaffId).HasColumnName("staffId");
-            entity.Property(e => e.TherapistId).HasColumnName("therapistId");
+            entity.Property(e => e.Date)
+                .HasColumnType("datetime")
+                .HasColumnName("date");
+            entity.Property(e => e.SkinTherapistId).HasColumnName("skinTherapistId");
+            entity.Property(e => e.SlotId).HasColumnName("slotId");
 
-            entity.HasOne(d => d.Staff).WithMany(p => p.Schedules)
-                .HasForeignKey(d => d.StaffId)
-                .HasConstraintName("FK__Schedule__staffI__0C85DE4D");
+            entity.HasOne(d => d.SkinTherapist).WithMany(p => p.Schedules)
+                .HasForeignKey(d => d.SkinTherapistId)
+                .HasConstraintName("FK__Schedule__skinTh__5EBF139D");
 
-            entity.HasOne(d => d.Therapist).WithMany(p => p.Schedules)
-                .HasForeignKey(d => d.TherapistId)
-                .HasConstraintName("FK__Schedule__therap__0B91BA14");
+            entity.HasOne(d => d.Slot).WithMany(p => p.Schedules)
+                .HasForeignKey(d => d.SlotId)
+                .HasConstraintName("FK__Schedule__slotId__5FB337D6");
         });
 
         modelBuilder.Entity<Service>(entity =>
         {
-            entity.HasKey(e => e.ServiceId).HasName("PK__Service__455070DFC116861C");
-
-            entity.ToTable("Service");
+            entity.HasKey(e => e.ServiceId).HasName("PK__Services__455070DFCAF055F5");
 
             entity.Property(e => e.ServiceId).HasColumnName("serviceId");
             entity.Property(e => e.CreatedAt)
@@ -413,139 +362,141 @@ public partial class SkincareBookingServiceContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("createdAt");
             entity.Property(e => e.Description)
-                .IsRequired()
-                .HasColumnType("text")
+                .HasMaxLength(255)
                 .HasColumnName("description");
+            entity.Property(e => e.Image)
+                .HasMaxLength(255)
+                .HasColumnName("image");
             entity.Property(e => e.Name)
                 .IsRequired()
-                .HasMaxLength(255)
+                .HasMaxLength(100)
                 .HasColumnName("name");
             entity.Property(e => e.Price)
-                .HasColumnType("decimal(18, 2)")
+                .HasColumnType("decimal(10, 2)")
                 .HasColumnName("price");
-            entity.Property(e => e.QuizResultId).HasColumnName("quizResultId");
-            entity.Property(e => e.ServiceTypeId).HasColumnName("serviceTypeId");
-
-            entity.HasOne(d => d.QuizResult).WithMany(p => p.Services)
-                .HasForeignKey(d => d.QuizResultId)
-                .HasConstraintName("FK__Service__quizRes__00200768");
-        });
-
-        modelBuilder.Entity<ServiceType>(entity =>
-        {
-            entity.HasKey(e => e.ServiceTypeId).HasName("PK__ServiceT__FB4CEA393CBBE35A");
-
-            entity.ToTable("ServiceType");
-
-            entity.Property(e => e.ServiceTypeId).HasColumnName("serviceTypeId");
-            entity.Property(e => e.Description)
-                .IsRequired()
-                .HasColumnType("text")
-                .HasColumnName("description");
-            entity.Property(e => e.Name)
-                .IsRequired()
-                .HasMaxLength(255)
-                .HasColumnName("name");
-            entity.Property(e => e.Period).HasColumnName("period");
-            entity.Property(e => e.Price)
-                .HasColumnType("decimal(18, 2)")
-                .HasColumnName("price");
-            entity.Property(e => e.ServiceId).HasColumnName("serviceId");
-
-            entity.HasOne(d => d.Service).WithMany(p => p.ServiceTypes)
-                .HasForeignKey(d => d.ServiceId)
-                .HasConstraintName("FK__ServiceTy__servi__03F0984C");
         });
 
         modelBuilder.Entity<SkinTherapist>(entity =>
         {
-            entity.HasKey(e => e.AccountId).HasName("PK__SkinTher__F267251EC018DC5E");
+            entity.HasKey(e => e.SkintherapistId).HasName("PK__SkinTher__AC166160E1B81E8D");
 
             entity.ToTable("SkinTherapist");
 
-            entity.Property(e => e.AccountId)
-                .ValueGeneratedNever()
-                .HasColumnName("accountId");
+            entity.Property(e => e.SkintherapistId).HasColumnName("skintherapistId");
+            entity.Property(e => e.AccountId).HasColumnName("accountId");
             entity.Property(e => e.Email)
-                .HasMaxLength(255)
+                .HasMaxLength(100)
                 .HasColumnName("email");
-            entity.Property(e => e.Experience).HasColumnName("experience");
+            entity.Property(e => e.Experience)
+                .HasMaxLength(255)
+                .HasColumnName("experience");
+            entity.Property(e => e.Image)
+                .HasMaxLength(255)
+                .HasColumnName("image");
             entity.Property(e => e.Name)
                 .IsRequired()
-                .HasMaxLength(255)
+                .HasMaxLength(100)
                 .HasColumnName("name");
-            entity.Property(e => e.Specialty)
+            entity.Property(e => e.Speciality)
                 .HasMaxLength(255)
-                .HasColumnName("specialty");
+                .HasColumnName("speciality");
 
-            entity.HasOne(d => d.Account).WithOne(p => p.SkinTherapist)
-                .HasForeignKey<SkinTherapist>(d => d.AccountId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__SkinThera__accou__5441852A");
+            entity.HasOne(d => d.Account).WithMany(p => p.SkinTherapists)
+                .HasForeignKey(d => d.AccountId)
+                .HasConstraintName("FK__SkinThera__accou__5165187F");
+        });
+
+        modelBuilder.Entity<SkinTherapistService>(entity =>
+        {
+            entity.HasKey(e => e.SkintherapistserviceId).HasName("PK__SkinTher__0F4BA1D27C9EA1BD");
+
+            entity.ToTable("SkinTherapistService");
+
+            entity.Property(e => e.SkintherapistserviceId).HasColumnName("skintherapistserviceId");
+            entity.Property(e => e.Email)
+                .HasMaxLength(100)
+                .HasColumnName("email");
+            entity.Property(e => e.Experience)
+                .HasMaxLength(255)
+                .HasColumnName("experience");
+            entity.Property(e => e.Name)
+                .IsRequired()
+                .HasMaxLength(100)
+                .HasColumnName("name");
+            entity.Property(e => e.ServiceId).HasColumnName("serviceId");
+            entity.Property(e => e.SkintherapistId).HasColumnName("skintherapistId");
+            entity.Property(e => e.Speciality)
+                .HasMaxLength(255)
+                .HasColumnName("speciality");
+
+            entity.HasOne(d => d.Service).WithMany(p => p.SkinTherapistServices)
+                .HasForeignKey(d => d.ServiceId)
+                .HasConstraintName("FK__SkinThera__servi__6383C8BA");
+
+            entity.HasOne(d => d.Skintherapist).WithMany(p => p.SkinTherapistServices)
+                .HasForeignKey(d => d.SkintherapistId)
+                .HasConstraintName("FK__SkinThera__skint__628FA481");
         });
 
         modelBuilder.Entity<SkinType>(entity =>
         {
-            entity.HasKey(e => e.SkinTypeId).HasName("PK__SkinType__7BCD90F4364D3994");
+            entity.HasKey(e => e.SkintypeId).HasName("PK__SkinType__4A6B74075F8CC227");
 
             entity.ToTable("SkinType");
 
-            entity.Property(e => e.SkinTypeId).HasColumnName("skinTypeId");
-            entity.Property(e => e.CustomerId).HasColumnName("customerId");
+            entity.Property(e => e.SkintypeId).HasColumnName("skintypeId");
             entity.Property(e => e.Description)
-                .IsRequired()
-                .HasColumnType("text")
+                .HasMaxLength(255)
                 .HasColumnName("description");
+            entity.Property(e => e.Image)
+                .HasMaxLength(255)
+                .HasColumnName("image");
+            entity.Property(e => e.SkintypeName)
+                .IsRequired()
+                .HasMaxLength(100)
+                .HasColumnName("skintypeName");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
+        });
 
-            entity.HasOne(d => d.Customer).WithMany(p => p.SkinTypes)
-                .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__SkinType__custom__5CD6CB2B");
+        modelBuilder.Entity<SkintypeService>(entity =>
+        {
+            entity.HasKey(e => e.SkintypeServiceId).HasName("PK__Skintype__CC39B0BFBB6C850B");
+
+            entity.ToTable("SkintypeService");
+
+            entity.Property(e => e.SkintypeServiceId).HasColumnName("skintypeServiceId");
+            entity.Property(e => e.ServiceId).HasColumnName("serviceId");
+            entity.Property(e => e.SkintypeId).HasColumnName("skintypeId");
+
+            entity.HasOne(d => d.Service).WithMany(p => p.SkintypeServices)
+                .HasForeignKey(d => d.ServiceId)
+                .HasConstraintName("FK__SkintypeS__servi__6754599E");
+
+            entity.HasOne(d => d.Skintype).WithMany(p => p.SkintypeServices)
+                .HasForeignKey(d => d.SkintypeId)
+                .HasConstraintName("FK__SkintypeS__skint__66603565");
         });
 
         modelBuilder.Entity<Slot>(entity =>
         {
-            entity.HasKey(e => e.SlotId).HasName("PK__Slot__9C4A671398EBD9E0");
+            entity.HasKey(e => e.SlotId).HasName("PK__Slot__9C4A67135BE9F5DA");
 
             entity.ToTable("Slot");
 
             entity.Property(e => e.SlotId).HasColumnName("slotId");
             entity.Property(e => e.BookingId).HasColumnName("bookingId");
-            entity.Property(e => e.ScheduleId).HasColumnName("scheduleId");
             entity.Property(e => e.Status)
-                .IsRequired()
                 .HasMaxLength(50)
                 .HasColumnName("status");
-            entity.Property(e => e.Time).HasColumnName("time");
+            entity.Property(e => e.Time)
+                .HasMaxLength(50)
+                .HasColumnName("time");
 
             entity.HasOne(d => d.Booking).WithMany(p => p.Slots)
                 .HasForeignKey(d => d.BookingId)
-                .HasConstraintName("FK__Slot__bookingId__0F624AF8");
-
-            entity.HasOne(d => d.Schedule).WithMany(p => p.Slots)
-                .HasForeignKey(d => d.ScheduleId)
-                .HasConstraintName("FK__Slot__scheduleId__10566F31");
-        });
-
-        modelBuilder.Entity<Staff>(entity =>
-        {
-            entity.HasKey(e => e.AccountId).HasName("PK__Staff__F267251E82AF2D95");
-
-            entity.Property(e => e.AccountId)
-                .ValueGeneratedNever()
-                .HasColumnName("accountId");
-            entity.Property(e => e.Name)
-                .IsRequired()
-                .HasMaxLength(255)
-                .HasColumnName("name");
-            entity.Property(e => e.Position)
-                .IsRequired()
-                .HasMaxLength(255)
-                .HasColumnName("position");
-
-            entity.HasOne(d => d.Account).WithOne(p => p.Staff)
-                .HasForeignKey<Staff>(d => d.AccountId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Staff__accountId__571DF1D5");
+                .HasConstraintName("FK__Slot__bookingId__5BE2A6F2");
         });
 
         OnModelCreatingPartial(modelBuilder);

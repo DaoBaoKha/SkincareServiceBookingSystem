@@ -9,21 +9,27 @@ public partial class Booking
 {
     public int BookingId { get; set; }
 
-    public int CustomerId { get; set; }
+    public int? CustomerId { get; set; }
 
-    public decimal Price { get; set; }
+    public string Location { get; set; }
+
+    public DateTime? Date { get; set; }
+
+    public DateTime? CreateAt { get; set; }
 
     public string Status { get; set; }
 
-    public string SkinTherapistName { get; set; }
+    public decimal? Amount { get; set; }
+
+    public int? SkintherapistId { get; set; }
+
+    public DateTime? UpdateAt { get; set; }
 
     public string ServiceName { get; set; }
 
-    public DateTime? CreatedAt { get; set; }
-
-    public DateTime? UpdatedAt { get; set; }
-
     public virtual Customer Customer { get; set; }
+
+    public virtual SkinTherapist Skintherapist { get; set; }
 
     public virtual ICollection<Slot> Slots { get; set; } = new List<Slot>();
 }

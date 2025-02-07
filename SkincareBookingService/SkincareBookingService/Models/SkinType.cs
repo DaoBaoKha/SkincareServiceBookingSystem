@@ -7,13 +7,21 @@ namespace SkincareBookingService.Models;
 
 public partial class SkinType
 {
-    public int SkinTypeId { get; set; }
+    public int SkintypeId { get; set; }
+
+    public string SkintypeName { get; set; }
 
     public string Description { get; set; }
 
-    public int? CustomerId { get; set; }
+    public string Image { get; set; }
 
-    public virtual Customer Customer { get; set; }
+    public string Status { get; set; }
 
-    public virtual ICollection<QuizQuestion> QuizQuestions { get; set; } = new List<QuizQuestion>();
+    public virtual ICollection<CustomerSurvey> CustomerSurveys { get; set; } = new List<CustomerSurvey>();
+
+    public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
+
+    public virtual ICollection<QuizAnswer> QuizAnswers { get; set; } = new List<QuizAnswer>();
+
+    public virtual ICollection<SkintypeService> SkintypeServices { get; set; } = new List<SkintypeService>();
 }

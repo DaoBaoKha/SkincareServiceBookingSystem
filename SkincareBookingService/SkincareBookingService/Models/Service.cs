@@ -13,15 +13,13 @@ public partial class Service
 
     public string Description { get; set; }
 
-    public decimal Price { get; set; }
+    public decimal? Price { get; set; }
 
-    public int ServiceTypeId { get; set; }
-
-    public int? QuizResultId { get; set; }
+    public string Image { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
-    public virtual QuizServiceResult QuizResult { get; set; }
+    public virtual ICollection<SkinTherapistService> SkinTherapistServices { get; set; } = new List<SkinTherapistService>();
 
-    public virtual ICollection<ServiceType> ServiceTypes { get; set; } = new List<ServiceType>();
+    public virtual ICollection<SkintypeService> SkintypeServices { get; set; } = new List<SkintypeService>();
 }

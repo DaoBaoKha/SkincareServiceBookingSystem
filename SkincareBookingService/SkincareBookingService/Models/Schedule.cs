@@ -9,15 +9,13 @@ public partial class Schedule
 {
     public int ScheduleId { get; set; }
 
-    public int? TherapistId { get; set; }
+    public int? SkinTherapistId { get; set; }
 
-    public string Description { get; set; }
+    public int? SlotId { get; set; }
 
-    public int? StaffId { get; set; }
+    public DateTime? Date { get; set; }
 
-    public virtual ICollection<Slot> Slots { get; set; } = new List<Slot>();
+    public virtual SkinTherapist SkinTherapist { get; set; }
 
-    public virtual Staff Staff { get; set; }
-
-    public virtual SkinTherapist Therapist { get; set; }
+    public virtual Slot Slot { get; set; }
 }

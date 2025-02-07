@@ -11,9 +11,7 @@ public partial class Feedback
 
     public string Content { get; set; }
 
-    public int CustomerId { get; set; }
-
-    public int ServiceId { get; set; }
+    public int? CustomerId { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 

@@ -11,25 +11,13 @@ public partial class Account
 
     public string AccountName { get; set; }
 
-    public string Email { get; set; }
-
     public string Password { get; set; }
 
-    public string PhoneNumber { get; set; }
+    public string Role { get; set; }
 
-    public DateTime? CreatedAt { get; set; }
+    public bool Active { get; set; }
 
-    public DateTime? UpdatedAt { get; set; }
+    public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
 
-    public int? RoleId { get; set; }
-
-    public virtual Customer Customer { get; set; }
-
-    public virtual Manager Manager { get; set; }
-
-    public virtual Role Role { get; set; }
-
-    public virtual SkinTherapist SkinTherapist { get; set; }
-
-    public virtual Staff Staff { get; set; }
+    public virtual ICollection<SkinTherapist> SkinTherapists { get; set; } = new List<SkinTherapist>();
 }

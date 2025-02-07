@@ -31,11 +31,15 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Feedback]",
+         "Name": "[dbo].[CustomerSurvey]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Manager]",
+         "Name": "[dbo].[CustomerSurveyAnswer]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Feedback]",
          "ObjectType": 0
       },
       {
@@ -51,19 +55,7 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[QuizServiceResult]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[Rating]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Report]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Role]",
          "ObjectType": 0
       },
       {
@@ -71,11 +63,7 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Service]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[ServiceType]",
+         "Name": "[dbo].[Services]",
          "ObjectType": 0
       },
       {
@@ -83,15 +71,19 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[SkinTherapistService]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[SkinType]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Slot]",
+         "Name": "[dbo].[SkintypeService]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Staff]",
+         "Name": "[dbo].[Slot]",
          "ObjectType": 0
       }
    ],

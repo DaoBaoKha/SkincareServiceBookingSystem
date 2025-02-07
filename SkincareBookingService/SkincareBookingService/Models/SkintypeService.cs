@@ -5,19 +5,15 @@ using System.Collections.Generic;
 
 namespace SkincareBookingService.Models;
 
-public partial class ServiceType
+public partial class SkintypeService
 {
-    public int ServiceTypeId { get; set; }
+    public int SkintypeServiceId { get; set; }
 
-    public string Name { get; set; }
-
-    public string Description { get; set; }
-
-    public decimal Price { get; set; }
-
-    public int Period { get; set; }
+    public int? SkintypeId { get; set; }
 
     public int? ServiceId { get; set; }
 
     public virtual Service Service { get; set; }
+
+    public virtual SkinType Skintype { get; set; }
 }
