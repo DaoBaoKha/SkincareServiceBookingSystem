@@ -9,12 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkincareBookingService.DAL"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkincareBookingService.BLL", "SkincareBookingService.BLL\SkincareBookingService.BLL.csproj", "{B72BA755-1340-4AEC-AB40-008E4393BEC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkincareBookingService.Core", "SkincareBookingService.Core\SkincareBookingService.Core.csproj", "{D8E93621-66C3-4C4A-9F3B-C4B61B9A3348}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A8263C7A-2057-481C-B230-331612AC29C8}"
-	ProjectSection(SolutionItems) = preProject
-		.gitignore = .gitignore
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkincareBookingService.Core", "SkincareBookingService.Core\SkincareBookingService.Core.csproj", "{D8E93621-66C3-4C4A-9F3B-C4B61B9A3348}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
