@@ -8,7 +8,12 @@
 
   <ItemGroup>
     <Folder Include="DTOs\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SkincareBookingService.DAL\SkincareBookingService.DAL.csproj" />
   </ItemGroup>
 
 </Project>
