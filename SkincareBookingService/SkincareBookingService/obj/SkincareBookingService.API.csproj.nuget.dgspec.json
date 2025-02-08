@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.csproj": {}
+    "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.API.csproj": {}
   },
   "projects": {
     "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService.BLL\\SkincareBookingService.BLL.csproj": {
@@ -146,12 +146,12 @@
         }
       }
     },
-    "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.csproj": {
+    "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.csproj",
-        "projectName": "SkincareBookingService",
-        "projectPath": "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.csproj",
+        "projectUniqueName": "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.API.csproj",
+        "projectName": "SkincareBookingService.API",
+        "projectPath": "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\SkincareBookingService.API.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
         "outputPath": "D:\\Main\\Projects\\SWP391\\SkincareServiceBookingSystem\\SkincareBookingService\\SkincareBookingService\\obj\\",
         "projectStyle": "PackageReference",
