@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "BookingController",
+    "Method": "CheckIn",
+    "RelativePath": "api/Booking/checkin/{bookingId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
