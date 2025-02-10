@@ -11,6 +11,8 @@ namespace SkincareBookingService.DAL.Interfaces
 
         Task<bool> UpdateStatusToCompletedAsync(int bookingId);
 
+        Task<bool> UpdateStatusToFinishedAsync(int bookingId);
+
         Task<List<Booking>> GetBookingsByStatusAsync(BookingStatus status);
     }
 

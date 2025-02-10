@@ -28,5 +28,10 @@ namespace SkincareBookingService.BLL.Services
         {
             return await _bookingRepository.UpdateStatusToCompletedAsync(bookingId);
         }
+
+        public async Task<bool> UpdateStatusToFinishedAsync(int bookingId)
+        {
+            return await _bookingRepository.UpdateStatusToFinishedAsync(bookingId);
+        }
     }
 }

@@ -69,5 +69,21 @@ namespace SkincareBookingService.DAL.Repositories
 
             return true;
         }
+
+        public async Task<bool> UpdateStatusToFinishedAsync(int bookingId)
+        {
+            var booking = await _context.Bookings.FindAsync(bookingId);
+
+            if (booking == null)
+            { return false; }
+
+            booking.Status = BookingStatus.Finished.ToString();
+            booking.UpdateAt = DateTime.UtcNow;
+
+            _context.Bookings.Update(booking);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

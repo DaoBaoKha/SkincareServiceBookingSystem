@@ -41,6 +41,21 @@ public class BookingController : ControllerBase
         }
     }
 
+    [HttpPut("finished/{bookingId}")]
+    public async Task<IActionResult> UpdateBookingStatusToFinished(int bookingId)
+    {
+        var result = await _bookingService.UpdateStatusToFinishedAsync(bookingId);
+
+        if (result)
+        {
+            return Ok(new { message = "Booking status updated to 'Finished' successfully." });
+        }
+        else
+        {
+            return NotFound(new { message = "Booking not found." });
+        }
+    }
+
     [HttpPut("completed/{bookingId}")]
     public async Task<IActionResult> UpdateBookingStatusToCompleted(int bookingId)
     {
@@ -55,6 +70,8 @@ public class BookingController : ControllerBase
             return NotFound(new { message = "Booking not found." });
         }
     }
+
+   
 }
 
 

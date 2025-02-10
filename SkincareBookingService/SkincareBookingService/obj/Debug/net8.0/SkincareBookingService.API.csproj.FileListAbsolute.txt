@@ -92,3 +92,7 @@ D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\Skin
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService\bin\Debug\net8.0\SkincareBookingService.Core.dll
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService\bin\Debug\net8.0\SkincareBookingService.Core.pdb
+D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService\bin\Debug\net8.0\SkincareBookingService.API.staticwebassets.endpoints.json
+D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService\obj\Debug\net8.0\staticwebassets\msbuild.SkincareBookingService.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
