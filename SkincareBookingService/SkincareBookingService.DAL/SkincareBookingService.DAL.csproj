@@ -19,4 +19,8 @@
     <Folder Include="Interfaces\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SkincareBookingService.Core\SkincareBookingService.Core.csproj" />
+  </ItemGroup>
+
 </Project>

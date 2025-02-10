@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SkincareBookingService.Core.Constants;
+using SkincareBookingService.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,8 @@ namespace SkincareBookingService.BLL.Interfaces
 {
     public interface IBookingService
     {
-        Task<bool> CheckInCustomerAsync(int bookingId);
+        Task<List<Booking>> GetBookingsByStatusAsync(BookingStatus status);
+
+        Task<bool> UpdateBookingStatusToCheckInAsync(int bookingId);
     }
 }

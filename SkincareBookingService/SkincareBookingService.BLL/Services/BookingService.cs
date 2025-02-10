@@ -1,4 +1,6 @@
 ﻿using SkincareBookingService.BLL.Interfaces;
+using SkincareBookingService.Core.Constants;
+using SkincareBookingService.DAL.Entities;
 using SkincareBookingService.DAL.Interfaces;
 
 namespace SkincareBookingService.BLL.Services
@@ -12,15 +14,14 @@ namespace SkincareBookingService.BLL.Services
             _bookingRepository = bookingRepository;
         }
 
-        public async Task<bool> CheckInCustomerAsync(int bookingId)
+        public async Task<List<Booking>> GetBookingsByStatusAsync(BookingStatus status)
         {
-            var booking = await _bookingRepository.GetBookingByIdAsync(bookingId);
-            if (booking == null)
-            {
-                return false;
-            }
+            return await _bookingRepository.GetBookingsByStatusAsync(status);
+        }
 
-            return await _bookingRepository.UpdateBookingStatusAsync(bookingId, "CheckedIn");
+        public async Task<bool> UpdateBookingStatusToCheckInAsync(int bookingId)
+        {
+            return await _bookingRepository.UpdateBookingStatusToCheckInAsync(bookingId);
         }
     }
 }

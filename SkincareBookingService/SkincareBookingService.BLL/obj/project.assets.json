@@ -1011,12 +1011,23 @@
           }
         }
       },
+      "SkincareBookingService.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/SkincareBookingService.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SkincareBookingService.Core.dll": {}
+        }
+      },
       "SkincareBookingService.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.1",
-          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.1"
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.1",
+          "SkincareBookingService.Core": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SkincareBookingService.DAL.dll": {}
@@ -2814,6 +2825,11 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "SkincareBookingService.Core/1.0.0": {
+      "type": "project",
+      "path": "../SkincareBookingService.Core/SkincareBookingService.Core.csproj",
+      "msbuildProject": "../SkincareBookingService.Core/SkincareBookingService.Core.csproj"
     },
     "SkincareBookingService.DAL/1.0.0": {
       "type": "project",

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SkincareBookingService.BLL.Interfaces;
+using SkincareBookingService.Core.Constants;
 using System.Threading.Tasks;
 
 [Route("api/[controller]")]
@@ -13,12 +14,33 @@ public class BookingController : ControllerBase
         _bookingService = bookingService;
     }
 
-    [HttpPost("checkin/{bookingId}")]
-    public async Task<IActionResult> CheckIn(int bookingId)
+    [HttpGet("booked")]
+    public async Task<IActionResult> GetBookingsWithStatusBooked()
     {
-        bool success = await _bookingService.CheckInCustomerAsync(bookingId);
-        if (!success) return BadRequest("Check-in failed. Booking not found or already checked in.");
+        var bookings = await _bookingService.GetBookingsByStatusAsync(BookingStatus.Booked);
+        if (bookings == null || bookings.Count == 0)
+        {
+            return NotFound("No bookings found with status 'Booked'.");
+        }
 
-        return Ok("Customer checked in successfully.");
+        return Ok(bookings);
+    }
+
+    [HttpPut("checkin/{bookingId}")]
+    public async Task<IActionResult> UpdateBookingStatusToCheckIn(int bookingId)
+    {
+        var result = await _bookingService.UpdateBookingStatusToCheckInAsync(bookingId);
+
+        if (result)
+        {
+            return Ok(new { message = "Booking status updated to 'CheckIn' successfully." });
+        }
+        else
+        {
+            return NotFound(new { message = "Booking not found." });
+        }
     }
 }
+
+
+

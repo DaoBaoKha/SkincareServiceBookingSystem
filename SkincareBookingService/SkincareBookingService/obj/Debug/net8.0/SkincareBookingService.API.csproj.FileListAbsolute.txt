@@ -90,3 +90,5 @@ D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\Skin
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService\bin\Debug\net8.0\System.Text.Encodings.Web.dll
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService\bin\Debug\net8.0\System.Text.Json.dll
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService\bin\Debug\net8.0\SkincareBookingService.Core.dll
+D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService\bin\Debug\net8.0\SkincareBookingService.Core.pdb
