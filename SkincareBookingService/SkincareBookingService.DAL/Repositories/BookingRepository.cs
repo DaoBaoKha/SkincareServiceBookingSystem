@@ -37,11 +37,32 @@ namespace SkincareBookingService.DAL.Repositories
 
             if (booking == null)
             {
-                return false;  
+                return false;
             }
 
-            booking.Status = BookingStatus.CheckIn.ToString(); 
-            booking.UpdateAt = DateTime.UtcNow;     
+            if (booking.Status == BookingStatus.CheckIn.ToString())
+            {
+                throw new InvalidOperationException("Booking is already checked in.");
+            }
+
+            booking.Status = BookingStatus.CheckIn.ToString();
+            booking.UpdateAt = DateTime.UtcNow;
+
+            _context.Bookings.Update(booking);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> UpdateStatusToCompletedAsync(int bookingId)
+        {
+            var booking = await _context.Bookings.FindAsync(bookingId);
+
+            if(booking == null)
+            {  return false; }
+
+            booking.Status = BookingStatus.Completed.ToString();
+            booking.UpdateAt = DateTime.UtcNow;
 
             _context.Bookings.Update(booking);
             await _context.SaveChangesAsync();
