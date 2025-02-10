@@ -14,3 +14,5 @@ D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\Skin
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.BLL\obj\Debug\net8.0\refint\SkincareBookingService.BLL.dll
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.BLL\obj\Debug\net8.0\SkincareBookingService.BLL.pdb
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.BLL\obj\Debug\net8.0\ref\SkincareBookingService.BLL.dll
+D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.BLL\bin\Debug\net8.0\SkincareBookingService.Core.dll
+D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.BLL\bin\Debug\net8.0\SkincareBookingService.Core.pdb

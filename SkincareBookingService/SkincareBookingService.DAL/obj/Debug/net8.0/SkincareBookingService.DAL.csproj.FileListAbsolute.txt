@@ -13,3 +13,6 @@ D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\Skin
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.DAL\obj\Debug\net8.0\SkincareBookingService.DAL.pdb
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.DAL\obj\Debug\net8.0\SkincareBookingService.DAL.genruntimeconfig.cache
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.DAL\obj\Debug\net8.0\ref\SkincareBookingService.DAL.dll
+D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.DAL\bin\Debug\net8.0\SkincareBookingService.Core.dll
+D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.DAL\bin\Debug\net8.0\SkincareBookingService.Core.pdb
+D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.DAL\obj\Debug\net8.0\Skincare.8483236C.Up2Date

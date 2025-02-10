@@ -674,10 +674,19 @@
           }
         }
       },
+      "SkincareBookingService.Core/1.0.0": {
+        "runtime": {
+          "SkincareBookingService.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "SkincareBookingService.DAL/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.1",
-          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.1"
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.1",
+          "SkincareBookingService.Core": "1.0.0"
         },
         "runtime": {
           "SkincareBookingService.DAL.dll": {
@@ -1129,6 +1138,11 @@
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
     "SkincareBookingService.BLL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SkincareBookingService.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

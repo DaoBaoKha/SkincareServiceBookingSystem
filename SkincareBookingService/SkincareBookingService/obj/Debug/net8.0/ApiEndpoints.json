@@ -1,9 +1,19 @@
 [
   {
     "ContainingType": "BookingController",
-    "Method": "CheckIn",
+    "Method": "GetBookingsWithStatusBooked",
+    "RelativePath": "api/Booking/booked",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingController",
+    "Method": "UpdateBookingStatusToCheckIn",
     "RelativePath": "api/Booking/checkin/{bookingId}",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
