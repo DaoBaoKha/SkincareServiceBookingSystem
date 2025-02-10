@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "YV6ogHxzXdD4oVr3vBQznlJ7TehyT8E2tSbK9+Pi58w=",
+  "Hash": "Kg91OR4/KGhqDwK6TdWye+vrzsgW8vaedewVs+PkXKc=",
   "Source": "SkincareBookingService.API",
   "BasePath": "_content/SkincareBookingService.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }
