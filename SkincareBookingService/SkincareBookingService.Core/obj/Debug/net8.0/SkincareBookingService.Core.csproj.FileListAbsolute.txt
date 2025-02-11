@@ -10,3 +10,4 @@ D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\Skin
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.Core\obj\Debug\net8.0\refint\SkincareBookingService.Core.dll
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.Core\obj\Debug\net8.0\SkincareBookingService.Core.pdb
 D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.Core\obj\Debug\net8.0\ref\SkincareBookingService.Core.dll
+D:\Main\Projects\SWP391\SkincareServiceBookingSystem\SkincareBookingService\SkincareBookingService.Core\obj\Debug\net8.0\SkincareBookingService.Core.csproj.AssemblyReference.cache

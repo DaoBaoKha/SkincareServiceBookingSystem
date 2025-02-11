@@ -25,9 +25,17 @@ namespace SkincareBookingService
                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
            );
 
-
+            /*====================================================*/
             builder.Services.AddScoped<IBookingRepository, BookingRepository>();
             builder.Services.AddScoped<IBookingService, BookingService>();
+
+
+            builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+            builder.Services.AddScoped<IAuthService, AuthService>();
+
+            /*====================================================*/
+
+
 
             var app = builder.Build();
 
