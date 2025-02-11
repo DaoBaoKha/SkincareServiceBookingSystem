@@ -9,10 +9,12 @@ namespace SkincareBookingService.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+        private readonly IJwtService _jwtService;
 
-        public AuthController(IAuthService authService)
+        public AuthController(IAuthService authService, IJwtService jwtService)
         {
             _authService = authService;
+            _jwtService = jwtService;
         }
 
         [HttpPost("login")]
@@ -27,11 +29,19 @@ namespace SkincareBookingService.API.Controllers
 
             if (account == null)
             {
-                return Unauthorized(new { message = "Incorrect accountName or password!" });
+                return Unauthorized(new { message = "Incorrect account name or password!" });
             }
 
-            return Ok(new { message = "Login Successfully!", accountId = account.AccountId, role = account.Role });
+            // ✅ Tạo JWT Token
+            var token = _jwtService.GenerateToken(account);
+
+            return Ok(new
+            {
+                message = "Login Successfully!",
+                accountId = account.AccountId,
+                role = account.Role,
+                token = token  // ✅ Trả về Token để sử dụng trong Swagger & API khác
+            });
         }
     }
-
 }
