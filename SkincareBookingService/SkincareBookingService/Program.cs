@@ -1,10 +1,13 @@
 ﻿
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using SkincareBookingService.BLL.Interfaces;
 using SkincareBookingService.BLL.Services;
 using SkincareBookingService.DAL.Entities;
 using SkincareBookingService.DAL.Interfaces;
 using SkincareBookingService.DAL.Repositories;
+using System.Text;
 
 namespace SkincareBookingService
 {
@@ -14,7 +17,28 @@ namespace SkincareBookingService
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            //secret key from appsettings.json
+            var jwtKey = builder.Configuration["Jwt:Key"];
+
+            //JwtService -> Secret Key
+            builder.Services.AddScoped<IJwtService>(_ => new JwtService(jwtKey));
+
+            //Authentication -> JWT Bearer
+            builder.Services
+                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.RequireHttpsMetadata = false;
+                    options.SaveToken = true;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtKey)),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                });
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -47,6 +71,8 @@ namespace SkincareBookingService
             }
 
             app.UseHttpsRedirection();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
