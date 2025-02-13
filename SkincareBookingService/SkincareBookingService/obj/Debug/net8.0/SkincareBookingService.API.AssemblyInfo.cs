@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SkincareBookingService.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30a5b3614fe72945b45a03bc2d6c028d6b0b6d19")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c6e33466def7232d34d3b2cd4b9701fae348dc1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SkincareBookingService.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SkincareBookingService.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
