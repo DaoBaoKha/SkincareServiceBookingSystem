@@ -10,7 +10,9 @@ namespace SkincareBookingService.BLL.Interfaces
 {
     public interface IBookingService
     {
-        Task<List<Booking>> GetBookingsByStatusAsync(BookingStatus status);
+        Task<List<Booking>> GetBookingsAsync();
+
+        Task<List<Booking>> GetBookingsByStatusAsync(string status);
 
         Task<bool> UpdateBookingStatusToCheckInAsync(int bookingId);
 

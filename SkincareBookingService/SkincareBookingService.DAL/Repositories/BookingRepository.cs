@@ -19,11 +19,16 @@ namespace SkincareBookingService.DAL.Repositories
             return await _context.Bookings.FindAsync(bookingId);
         }
 
-        public async Task<List<Booking>> GetBookingsByStatusAsync(BookingStatus status)
+        public async Task<List<Booking>> GetBookingsByStatusAsync(string status)
         {
             return await _context.Bookings
                                  .Where(b => b.Status == status.ToString())
                                  .ToListAsync();
+        }
+
+        public async Task<List<Booking>> GetBookingsAsync()
+        {
+            return await _context.Bookings.ToListAsync();
         }
 
         public Task<bool> UpdateBookingStatusAsync(int bookingId, string status)

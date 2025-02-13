@@ -14,13 +14,25 @@ public class BookingController : ControllerBase
         _bookingService = bookingService;
     }
 
-    [HttpGet("booked")]
-    public async Task<IActionResult> GetBookingsWithStatusBooked()
+    [HttpGet("getAllBookings")]
+    public async Task<IActionResult> GetBookings()
     {
-        var bookings = await _bookingService.GetBookingsByStatusAsync(BookingStatus.Booked);
+        var bookings = await _bookingService.GetBookingsAsync();
         if (bookings == null || bookings.Count == 0)
         {
-            return NotFound("No bookings found with status 'Booked'.");
+            return NotFound("No bookings found");
+        }
+
+        return Ok(bookings);
+    }
+
+    [HttpGet("booked/{bookingStatus}")]
+    public async Task<IActionResult> GetBookingsWithStatus(string bookingStatus)
+    {
+        var bookings = await _bookingService.GetBookingsByStatusAsync(bookingStatus);
+        if (bookings == null || bookings.Count == 0)
+        {
+            return NotFound("No bookings found with that status");
         }
 
         return Ok(bookings);
@@ -30,7 +42,7 @@ public class BookingController : ControllerBase
     public async Task<IActionResult> UpdateBookingStatusToCheckIn(int bookingId)
     {
         var result = await _bookingService.UpdateBookingStatusToCheckInAsync(bookingId);
-
+                 
         if (result)
         {
             return Ok(new { message = "Booking status updated to 'CheckIn' successfully." });

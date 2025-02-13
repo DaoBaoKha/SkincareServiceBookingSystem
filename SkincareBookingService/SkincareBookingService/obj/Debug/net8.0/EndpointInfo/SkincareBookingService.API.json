@@ -36,10 +36,32 @@
         }
       }
     },
-    "/api/Booking/booked": {
+    "/api/Booking/getAllBookings": {
       "get": {
         "tags": [
           "Booking"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Booking/booked/{bookingStatus}": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "bookingStatus",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
