@@ -54,6 +54,22 @@ namespace SkincareBookingService.DAL.Repositories
             return true;
         }
 
+        public async Task<bool> UpdateStatusToCancelledAsync(int bookingId)
+        {
+            var booking = await _context.Bookings.FindAsync(bookingId);
+
+            if (booking == null)
+            { return false; }
+
+            booking.Status = BookingStatus.Cancelled.ToString();
+            booking.UpdateAt = DateTime.UtcNow;
+
+            _context.Bookings.Update(booking);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
         public async Task<bool> UpdateStatusToCompletedAsync(int bookingId)
         {
             var booking = await _context.Bookings.FindAsync(bookingId);
@@ -62,6 +78,22 @@ namespace SkincareBookingService.DAL.Repositories
             {  return false; }
 
             booking.Status = BookingStatus.Completed.ToString();
+            booking.UpdateAt = DateTime.UtcNow;
+
+            _context.Bookings.Update(booking);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> UpdateStatusToDeniedAsync(int bookingId)
+        {
+            var booking = await _context.Bookings.FindAsync(bookingId);
+
+            if (booking == null)
+            { return false; }
+
+            booking.Status = BookingStatus.Denied.ToString();
             booking.UpdateAt = DateTime.UtcNow;
 
             _context.Bookings.Update(booking);

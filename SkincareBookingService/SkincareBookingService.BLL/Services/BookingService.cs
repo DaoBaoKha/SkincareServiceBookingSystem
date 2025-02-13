@@ -24,9 +24,19 @@ namespace SkincareBookingService.BLL.Services
             return await _bookingRepository.UpdateBookingStatusToCheckInAsync(bookingId);
         }
 
+        public async Task<bool> UpdateStatusToCancelledAsync(int bookingId)
+        {
+            return await _bookingRepository.UpdateStatusToCancelledAsync(bookingId);
+        }
+
         public async Task<bool> UpdateStatusToCompletedAsync(int bookingId)
         {
             return await _bookingRepository.UpdateStatusToCompletedAsync(bookingId);
+        }
+
+        public async Task<bool> UpdateStatusToDeniedAsync(int bookingId)
+        {
+            return await _bookingRepository.UpdateStatusToDeniedAsync(bookingId);
         }
 
         public async Task<bool> UpdateStatusToFinishedAsync(int bookingId)

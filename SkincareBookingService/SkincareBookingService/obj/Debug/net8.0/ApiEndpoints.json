@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "BookingController",
+    "Method": "UpdateBookingStatusToCancelled",
+    "RelativePath": "api/Booking/cancelled/{bookingId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingController",
     "Method": "UpdateBookingStatusToCheckIn",
     "RelativePath": "api/Booking/checkin/{bookingId}",
     "HttpMethod": "PUT",
@@ -45,6 +61,22 @@
     "ContainingType": "BookingController",
     "Method": "UpdateBookingStatusToCompleted",
     "RelativePath": "api/Booking/completed/{bookingId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingController",
+    "Method": "UpdateBookingStatusToDenied",
+    "RelativePath": "api/Booking/denied/{bookingId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
