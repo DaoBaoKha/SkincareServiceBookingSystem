@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkincareBookingService.API", "SkincareBookingService\SkincareBookingService.API.csproj", "{DF99AEC8-C11A-4735-9B17-67CCC80C081E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkincareBookingService", "SkincareBookingService\SkincareBookingService.csproj", "{DF99AEC8-C11A-4735-9B17-67CCC80C081E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkincareBookingService.DAL", "SkincareBookingService.DAL\SkincareBookingService.DAL.csproj", "{651E4820-13D6-45DB-A0E7-EDAFF4BC0CDA}"
 EndProject
