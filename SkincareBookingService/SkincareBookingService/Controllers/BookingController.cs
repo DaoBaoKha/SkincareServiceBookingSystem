@@ -71,7 +71,38 @@ public class BookingController : ControllerBase
         }
     }
 
-   
+    [HttpPut("denied/{bookingId}")]
+    public async Task<IActionResult> UpdateBookingStatusToDenied(int bookingId)
+    {
+        var result = await _bookingService.UpdateStatusToDeniedAsync(bookingId);
+
+        if (result)
+        {
+            return Ok(new { message = "Booking status updated to 'Denied' successfully." });
+        }
+        else
+        {
+            return NotFound(new { message = "Booking not found." });
+        }
+    }
+
+    [HttpPut("cancelled/{bookingId}")]
+    public async Task<IActionResult> UpdateBookingStatusToCancelled(int bookingId)
+    {
+        var result = await _bookingService.UpdateStatusToCancelledAsync(bookingId);
+
+        if (result)
+        {
+            return Ok(new { message = "Booking status updated to 'Cancelled' successfully." });
+        }
+        else
+        {
+            return NotFound(new { message = "Booking not found." });
+        }
+    }
+
+
+
 }
 
 

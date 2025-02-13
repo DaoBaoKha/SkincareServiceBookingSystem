@@ -16,6 +16,11 @@ namespace SkincareBookingService.BLL.Interfaces
 
         Task<bool> UpdateStatusToCompletedAsync(int bookingId);
 
+        Task<bool> UpdateStatusToDeniedAsync(int bookingId);
+
+        Task<bool> UpdateStatusToCancelledAsync(int bookingId);
+
+
         Task<bool> UpdateStatusToFinishedAsync(int bookingId);
     }
 }
