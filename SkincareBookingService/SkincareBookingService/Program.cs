@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using SkincareBookingService.BLL.Interfaces;
@@ -39,6 +38,16 @@ namespace SkincareBookingService
                     };
                 });
 
+            // Add CORS service
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowReactApp", policy =>
+                {
+                    policy.WithOrigins("http://localhost:5173")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -53,13 +62,10 @@ namespace SkincareBookingService
             builder.Services.AddScoped<IBookingRepository, BookingRepository>();
             builder.Services.AddScoped<IBookingService, BookingService>();
 
-
             builder.Services.AddScoped<IAccountRepository, AccountRepository>();
             builder.Services.AddScoped<IAuthService, AuthService>();
 
             /*====================================================*/
-
-
 
             var app = builder.Build();
 
@@ -72,10 +78,12 @@ namespace SkincareBookingService
 
             app.UseHttpsRedirection();
 
+            // Use CORS with the defined policy
+            app.UseCors("AllowReactApp");
+
             app.UseAuthentication();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
