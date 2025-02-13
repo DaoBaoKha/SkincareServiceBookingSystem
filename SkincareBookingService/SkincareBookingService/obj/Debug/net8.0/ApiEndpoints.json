@@ -17,12 +17,18 @@
   },
   {
     "ContainingType": "BookingController",
-    "Method": "GetBookingsWithStatusBooked",
-    "RelativePath": "api/Booking/booked",
+    "Method": "GetBookingsWithStatus",
+    "RelativePath": "api/Booking/booked/{bookingStatus}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "bookingStatus",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -103,6 +109,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingController",
+    "Method": "GetBookings",
+    "RelativePath": "api/Booking/getAllBookings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

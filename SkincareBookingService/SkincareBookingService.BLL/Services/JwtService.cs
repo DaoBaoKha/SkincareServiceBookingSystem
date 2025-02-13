@@ -29,7 +29,7 @@ namespace SkincareBookingService.BLL.Services
                 new Claim(ClaimTypes.Name, account.AccountName),
                 new Claim(ClaimTypes.Role, account.Role) // ✅ Lưu Role vào token
             }),
-                Expires = DateTime.UtcNow.AddHours(5), // Token hết hạn sau 5 giờ
+                Expires = DateTime.UtcNow.AddHours(5), // Token hết hạn sau 5 giờ FIX INTO 1 HOUR ONLY
                 SigningCredentials = new SigningCredentials(
                     new SymmetricSecurityKey(key),
                     SecurityAlgorithms.HmacSha256Signature)

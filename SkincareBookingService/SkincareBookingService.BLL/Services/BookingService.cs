@@ -14,9 +14,14 @@ namespace SkincareBookingService.BLL.Services
             _bookingRepository = bookingRepository;
         }
 
-        public async Task<List<Booking>> GetBookingsByStatusAsync(BookingStatus status)
+        public async Task<List<Booking>> GetBookingsByStatusAsync(string status)
         {
             return await _bookingRepository.GetBookingsByStatusAsync(status);
+        }
+
+        public async Task<List<Booking>> GetBookingsAsync()
+        {
+            return await _bookingRepository.GetBookingsAsync();
         }
 
         public async Task<bool> UpdateBookingStatusToCheckInAsync(int bookingId)
