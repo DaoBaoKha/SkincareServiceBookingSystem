@@ -16,5 +16,10 @@ namespace SkincareBookingService.DAL.Repositories
         {
             return await _context.Services.ToListAsync();
         }
+        public async Task<Service> GetServiceByIdAsync(int serviceId)
+        {
+            return await _context.Services.FirstOrDefaultAsync(s => s.ServiceId == serviceId) 
+                ?? throw new Exception("Service not found");
+        }
     }
 }

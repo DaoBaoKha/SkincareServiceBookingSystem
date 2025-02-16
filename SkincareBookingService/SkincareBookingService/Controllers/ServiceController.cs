@@ -22,5 +22,15 @@ namespace SkincareBookingService.Controllers
             }
             return Ok(services);
         }
+        [HttpGet("getServiceById/{serviceId}")]
+        public async Task<IActionResult> GetServiceById(int serviceId)
+        {
+            var service = await _serviceService.GetServiceByIdAsync(serviceId);
+            if (service == null)
+            {
+                return NotFound("Service not found");
+            }
+            return Ok(service);
+        }
     }
 }
