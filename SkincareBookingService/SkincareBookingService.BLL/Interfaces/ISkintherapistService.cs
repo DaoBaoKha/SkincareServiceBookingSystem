@@ -1,0 +1,9 @@
+﻿using SkincareBookingService.BLL.DTOs;
+
+namespace SkincareBookingService.BLL.Interfaces
+{
+    public interface ISkintherapistService
+    {
+        Task<List<SkinTherapistDTO>> GetSkintherapistsAsync();
+    }
+}

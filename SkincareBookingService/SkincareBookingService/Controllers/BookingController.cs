@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SkincareBookingService.BLL.Interfaces;
-using SkincareBookingService.Core.Constants;
-using System.Threading.Tasks;
 
 [Route("api/[controller]")]
 [ApiController]
