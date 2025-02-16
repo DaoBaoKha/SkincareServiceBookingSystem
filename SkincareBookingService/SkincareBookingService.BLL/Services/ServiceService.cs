@@ -25,5 +25,17 @@ namespace SkincareBookingService.BLL.Services
                 Image = s.Image
             }).ToList();
         }
+        public async Task<ServiceDTO> GetServiceByIdAsync(int serviceId)
+        {
+            var service = await _serviceRepository.GetServiceByIdAsync(serviceId);
+            return new ServiceDTO
+            {
+                ServiceId = service.ServiceId,
+                Name = service.Name,
+                Description = service.Description,
+                Price = service.Price,
+                Image = service.Image
+            };
+        }
     }
 }
