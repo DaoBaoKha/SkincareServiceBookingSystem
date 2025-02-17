@@ -6,8 +6,8 @@
 # User-specific files
 *.user
 *.userosscache
-*.suo
 *.sln.docstates
+
 
 # Build results
 bin/
@@ -75,3 +75,4 @@ docker-compose.override.yml
 Generated/
 node_modules/
 wwwroot/
+
