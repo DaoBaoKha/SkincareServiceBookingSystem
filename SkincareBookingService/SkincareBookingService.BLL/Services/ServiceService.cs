@@ -1,22 +1,23 @@
 ﻿using SkincareBookingService.BLL.DTOs;
 using SkincareBookingService.BLL.Interfaces;
+using SkincareBookingService.DAL.Entities;
 using SkincareBookingService.DAL.Interfaces;
 
 namespace SkincareBookingService.BLL.Services
 {
     public class ServiceService : IServiceService
     {
-        private readonly IServiceRepository _serviceRepository;
+        private readonly IGenericRepository<Service> _serviceRepository;
 
-        public ServiceService(IServiceRepository serviceRepository)
+        public ServiceService(IGenericRepository<Service> serviceRepository)
         {
             _serviceRepository = serviceRepository;
         }
 
         public async Task<List<ServiceDTO>> GetServicesAsync()
         {
-           var service = await _serviceRepository.GetServicesAsync();
-            return service.Select(s => new ServiceDTO
+            var services = await _serviceRepository.GetAllAsync();
+            return services.Select(s => new ServiceDTO
             {
                 ServiceId = s.ServiceId,
                 Name = s.Name,
@@ -25,9 +26,12 @@ namespace SkincareBookingService.BLL.Services
                 Image = s.Image
             }).ToList();
         }
+
         public async Task<ServiceDTO> GetServiceByIdAsync(int serviceId)
         {
-            var service = await _serviceRepository.GetServiceByIdAsync(serviceId);
+            var service = await _serviceRepository.GetByIdAsync(serviceId);
+            if (service == null) return null;
+
             return new ServiceDTO
             {
                 ServiceId = service.ServiceId,

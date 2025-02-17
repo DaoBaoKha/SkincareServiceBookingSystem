@@ -7,18 +7,17 @@ namespace SkincareBookingService.BLL.Services
 {
     public class SkintherapistService : ISkintherapistService
     {
-        private readonly ISkintherapistRepository _skintherapistRepository;
+        private readonly IGenericRepository<SkinTherapist> _skintherapistRepository;
 
-        public SkintherapistService(ISkintherapistRepository skintherapistRepository)
+        public SkintherapistService(IGenericRepository<SkinTherapist> skintherapistRepository)
         {
             _skintherapistRepository = skintherapistRepository;
         }
 
         public async Task<List<SkinTherapistDTO>> GetSkintherapistsAsync()
         {
-            var therapist = await _skintherapistRepository.GetSkintherapistsAsync();
-
-            return therapist.Select(t => new SkinTherapistDTO
+            var therapists = await _skintherapistRepository.GetAllAsync();
+            return therapists.Select(t => new SkinTherapistDTO
             {
                 SkintherapistId = t.SkintherapistId,
                 Name = t.Name,

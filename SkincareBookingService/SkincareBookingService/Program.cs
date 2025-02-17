@@ -59,16 +59,15 @@ namespace SkincareBookingService
            );
 
             /*====================================================*/
-            builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            
+
             builder.Services.AddScoped<IBookingService, BookingService>();
 
-            builder.Services.AddScoped<IAccountRepository, AccountRepository>();
-            builder.Services.AddScoped<IAuthService, AuthService>();
-
-            builder.Services.AddScoped<ISkintherapistRepository, SkintherapistRepository>();
             builder.Services.AddScoped<ISkintherapistService, SkintherapistService>();
 
-            builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+            builder.Services.AddScoped<IAuthService, AuthService>();
+
             builder.Services.AddScoped<IServiceService, ServiceService>();
 
             /*====================================================*/
