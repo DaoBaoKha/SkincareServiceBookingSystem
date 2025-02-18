@@ -25,5 +25,16 @@ namespace SkincareBookingService.Controllers
 
             return Ok(skintherapist);
         }
+
+        [HttpGet("getSkintherapistById/{id}")]
+        public async Task<IActionResult> GetSkintherapistById(int id)
+        {
+            var skintherapist = await _skintherapistService.GetSkintherapistByIdAsync(id);
+            if (skintherapist == null)
+            {
+                return NotFound("No skintherapist found");
+            }
+            return Ok(skintherapist);
+        }
     }
 }
