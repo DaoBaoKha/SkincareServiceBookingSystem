@@ -21,6 +21,8 @@ public partial class SkinTherapist
 
     public int? AccountId { get; set; }
 
+    public string Degree { get; set; }
+
     public virtual Account Account { get; set; }
 
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();

@@ -14,6 +14,22 @@ namespace SkincareBookingService.BLL.Services
             _skintherapistRepository = skintherapistRepository;
         }
 
+        public async Task<SkinTherapistDTO> GetSkintherapistByIdAsync(int id)
+        {
+            var therapist = await _skintherapistRepository.GetByIdAsync(id);
+            return new SkinTherapistDTO
+            {
+                SkintherapistId = therapist.SkintherapistId,
+                Name = therapist.Name,
+                Speciality = therapist.Speciality,
+                Email = therapist.Email,
+                Experience = therapist.Experience,
+                Image = therapist.Image,
+                Degree = therapist.Degree,
+                AccountId = therapist.AccountId
+            };
+        }
+
         public async Task<List<SkinTherapistDTO>> GetSkintherapistsAsync()
         {
             var therapists = await _skintherapistRepository.GetAllAsync();
@@ -25,6 +41,7 @@ namespace SkincareBookingService.BLL.Services
                 Email = t.Email,
                 Experience = t.Experience,
                 Image = t.Image,
+                Degree = t.Degree,
                 AccountId = t.AccountId
             }).ToList();
         }
