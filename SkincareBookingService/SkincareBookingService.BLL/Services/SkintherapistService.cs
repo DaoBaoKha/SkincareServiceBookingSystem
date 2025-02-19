@@ -53,8 +53,8 @@ namespace SkincareBookingService.BLL.Services
         {
             List<int?> skinTherapistIdList = await _skintherapistServiceRepository
                 .Query()
-                .Where(ts => ts.ServiceId == serviceId)
-                .Select(ts => ts.SkintherapistId)
+                .Where(sts => sts.ServiceId == serviceId)
+                .Select(sts => sts.SkintherapistId)
                 .ToListAsync();
 
             List<SkinTherapistDTO> skinTherapistList = new List<SkinTherapistDTO>();

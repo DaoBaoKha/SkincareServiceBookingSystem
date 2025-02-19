@@ -2,7 +2,7 @@
 using SkincareBookingService.BLL.DTOs;
 using SkincareBookingService.BLL.Interfaces;
 
-namespace SkincareBookingService.API.Controllers
+namespace SkincareBookingService.Controllers
 {
     [Route("api/auth")]
     [ApiController]

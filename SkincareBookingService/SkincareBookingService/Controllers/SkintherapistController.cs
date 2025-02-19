@@ -18,7 +18,7 @@ namespace SkincareBookingService.Controllers
         public async Task<IActionResult> GetSkintherapists()
         {
             var skintherapist = await _skintherapistService.GetSkintherapistsAsync();
-            if(skintherapist == null || skintherapist.Count == 0)
+            if (skintherapist == null || skintherapist.Count == 0)
             {
                 return NotFound("No skintherapist found");
             }
