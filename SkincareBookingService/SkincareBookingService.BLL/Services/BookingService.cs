@@ -1,4 +1,5 @@
-﻿using SkincareBookingService.BLL.Interfaces;
+﻿using SkincareBookingService.BLL.DTOs;
+using SkincareBookingService.BLL.Interfaces;
 using SkincareBookingService.Core.Constants;
 using SkincareBookingService.DAL.Entities;
 using SkincareBookingService.DAL.Interfaces;
@@ -92,6 +93,25 @@ namespace SkincareBookingService.BLL.Services
             await _bookingRepository.UpdateAsync(booking);
             await _bookingRepository.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<Booking> CreateBookingAsync(int customerId, string location, DateTime date, string status, decimal amount, int skintherapistId, string serviceName)
+        {
+            var booking = new Booking
+            {
+                CustomerId = customerId,
+                Location = location,
+                Date = date,
+                CreateAt = DateTime.Now,
+                Status = status,
+                Amount = amount,
+                SkintherapistId = skintherapistId,
+                ServiceName = serviceName
+            };
+
+            await _bookingRepository.AddAsync(booking);
+            await _bookingRepository.SaveChangesAsync();
+            return booking;
         }
     }
 }

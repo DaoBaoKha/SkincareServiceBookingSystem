@@ -153,6 +153,17 @@ public class BookingController : ControllerBase
             return NotFound(new { message = "Booking not found." });
         }
     }
+
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateBooking(int customerId, string location, DateTime date, string status, decimal amount, int skintherapistId, string serviceName)
+    {
+        var booking = await _bookingService.CreateBookingAsync(customerId, location, date, status, amount, skintherapistId, serviceName);
+        if (booking == null)
+        {
+            return BadRequest("Booking creation failed.");
+        }
+        return Ok(booking);
+    }
 }
 
 
