@@ -1,4 +1,5 @@
-﻿using SkincareBookingService.Core.Constants;
+﻿using SkincareBookingService.BLL.DTOs;
+using SkincareBookingService.Core.Constants;
 using SkincareBookingService.DAL.Entities;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,8 @@ namespace SkincareBookingService.BLL.Interfaces
         Task<bool> UpdateBookingSkintherapistAsync(int bookingId, int skintherapistId);
 
         Task<bool> UpdateBookingAmountAsync(int bookingId, float amount);
+
+        Task<Booking> CreateBookingAsync(int customerId, string location, DateTime date, string status, decimal amount, int skintherapistId, string serviceName);
 
     }
 }
