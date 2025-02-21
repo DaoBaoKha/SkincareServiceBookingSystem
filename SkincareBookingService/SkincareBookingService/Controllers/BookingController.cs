@@ -126,6 +126,33 @@ public class BookingController : ControllerBase
         }
     }
 
+    [HttpPut("skintherapistId/{bookingId}")]
+    public async Task<IActionResult> UpdateBookingSkintherapist(int bookingId, int skintherapistId)
+    {
+        var result = await _bookingService.UpdateBookingSkintherapistAsync(bookingId, skintherapistId);
+        if (result)
+        {
+            return Ok(new { message = "Booking skintherapist updated successfully." });
+        }
+        else
+        {
+            return NotFound(new { message = "Booking not found." });
+        }
+    }
+
+    [HttpPut("amount/{bookingId}")]
+    public async Task<IActionResult> UpdateBookingAmount(int bookingId, float amount)
+    {
+        var result = await _bookingService.UpdateBookingAmountAsync(bookingId, amount);
+        if (result)
+        {
+            return Ok(new { message = "Booking amount updated successfully." });
+        }
+        else
+        {
+            return NotFound(new { message = "Booking not found." });
+        }
+    }
 }
 
 

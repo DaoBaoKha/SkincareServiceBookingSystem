@@ -72,5 +72,26 @@ namespace SkincareBookingService.BLL.Services
             return true;
         }
 
+        public async Task<bool> UpdateBookingSkintherapistAsync(int bookingId, int skintherapistId)
+        {
+            var booking = await _bookingRepository.GetByIdAsync(bookingId);
+            if (booking == null) return false;
+
+            booking.SkintherapistId = skintherapistId;
+            await _bookingRepository.UpdateAsync(booking);
+            await _bookingRepository.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> UpdateBookingAmountAsync(int bookingId, float amount)
+        {
+            var booking = await _bookingRepository.GetByIdAsync(bookingId);
+            if (booking == null) return false;
+
+            booking.Amount = (decimal?)amount;
+            await _bookingRepository.UpdateAsync(booking);
+            await _bookingRepository.SaveChangesAsync();
+            return true;
+        }
     }
 }
