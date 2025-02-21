@@ -111,7 +111,20 @@ public class BookingController : ControllerBase
         }
     }
 
+    [HttpPut("serviceName/{bookingId}")]
+    public async Task<IActionResult> UpdateBookingServiceName(int bookingId, string serviceName)
+    {
+        var result = await _bookingService.UpdateBookingServiceNameAsync(bookingId, serviceName);
 
+        if (result)
+        {
+            return Ok(new { message = "Booking service name updated successfully." });
+        }
+        else
+        {
+            return NotFound(new { message = "Booking not found." });
+        }
+    }
 
 }
 

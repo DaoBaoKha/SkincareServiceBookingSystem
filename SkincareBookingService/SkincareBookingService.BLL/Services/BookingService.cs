@@ -2,9 +2,6 @@
 using SkincareBookingService.Core.Constants;
 using SkincareBookingService.DAL.Entities;
 using SkincareBookingService.DAL.Interfaces;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SkincareBookingService.BLL.Services
 {
@@ -63,5 +60,17 @@ namespace SkincareBookingService.BLL.Services
             await _bookingRepository.UpdateAsync(booking);
             return true;
         }
+
+        public async Task<bool> UpdateBookingServiceNameAsync(int bookingId, string serviceName)
+        {
+            var booking = await _bookingRepository.GetByIdAsync(bookingId);
+            if (booking == null) return false;
+
+            booking.ServiceName = serviceName;
+            await _bookingRepository.UpdateAsync(booking);
+            await _bookingRepository.SaveChangesAsync();
+            return true;
+        }
+
     }
 }
